@@ -44,6 +44,21 @@ int main(void) {
     }
     printf("Enter input: ");
   }
+  for (uint8_t i = 0; i < 5; i++) {
+    free(storedInputs[i]);
+  }
 
   return 0;
 }
+
+/*
+ * I feel like a more elegent way to implement this would be with a rotating
+ * queue of some sort which would save on the overhead from memcpy (O(n) I
+ * think?), wheras a rotating queue can just continue to loop the index between
+ * 0-4 inclusive and have two index "pointers" to keep track of the index
+ * tail/head and print accordingly there. But it's 6am and I was up all night
+ * like a degenerate so I implemented the straightfoward "naive" version lol.
+ * Was able to copy over a lot of my lab2 code in terms of getline and fopen.
+ * Also, I don't think the free at the end triggers if we use ctrl-c to exit,
+ * but wtv. I realized I forgot to free my pointers from lab2 lol, whoops.
+ */
