@@ -47,6 +47,7 @@ int main(void) {
   for (uint8_t i = 0; i < 5; i++) {
     free(storedInputs[i]);
   }
+  fclose(stream);
 
   return 0;
 }
